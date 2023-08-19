@@ -61,7 +61,7 @@ $esign->getData(); //Get data as array (tergantung dari API BSrE)
 
 - **Tanda tangan digital visible**
 ```php
-//Soon
+$esign = ESignBSrE::signVisible($nik, $passphrase, $file, $filename,$x,$y,$width,$height,$page,$imagettd);
 ```
 
 <!--### Testing
