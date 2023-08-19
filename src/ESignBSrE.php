@@ -44,6 +44,30 @@ class ESignBSrE
         return new ESignBSreResponse($response);
     }
 
+    public function signVisible($nik, $passphrase, $file, $fileName,$x,$y,$width,$height,$page,$imagettd) {
+        $response = $this->http->attach(
+                'file',
+                $file,
+                $fileName)
+            ->attach(
+                'imageTTD',
+                $imagettd,
+                'ttd.png')
+            ->post($this->url . 'api/sign/pdf', [
+                'nik' => $nik,
+                'passphrase' => $passphrase,
+                'tampilan' => 'visible',
+                'image' => true,
+                'xAxis' => $x,
+                'yAxis' => $y,
+                'width' => $width,
+                'height' => $height,
+                'halaman' => $page,
+            ]);
+
+        return new ESignBSreResponse($response);
+    }
+
     public function signVerification($file, $fileName){
         $response = $this->http->attach(
             'signed_file',

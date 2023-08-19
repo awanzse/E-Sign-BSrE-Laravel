@@ -35,7 +35,7 @@ composer require diskominfotik-banda-aceh/e-sign-bsre-laravel
 ### Konfigurasi
 Copy dan paste konfigurasi ini ke dalam file `.env`
 ```php
-TTE_URL="esign.example.go.id"
+TTE_URL="esign.example.go.id/"
 TTE_USERNAME="username"
 TTE_PASSWORD="password"
 ```
@@ -62,6 +62,9 @@ $esign->getData(); //Get data as array (tergantung dari API BSrE)
 - **Tanda tangan digital visible**
 ```php
 $esign = ESignBSrE::signVisible($nik, $passphrase, $file, $filename,$x,$y,$width,$height,$page,$imagettd);
+$esign->getStatus(); //Get status response (int)
+$esign->getErrors(); //Get error response
+$esign->getData(); //Get data as array (tergantung dari API BSrE)
 ```
 
 <!--### Testing
